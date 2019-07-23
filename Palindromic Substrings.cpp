@@ -1,5 +1,9 @@
 class Solution {
 public:
+    bool isPalindrome (string s) {
+        if (s.length() == 1) return 1;
+        return (s == string(s.rbegin(), s.rend()));
+    }
     
     int countSubstrings(string s) {
         int ans = 0;
