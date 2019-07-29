@@ -21,7 +21,7 @@ class Solution:
         # First, we compare the preorder of the left subtree
         # of our current root to the inorder of the left subtree.
         # Up to and including ind is the left subtree in preorder.
-        left_pre = preorder[1:ind+1]
+        left_pre = preorder[1:ind + 1]
         left_in = inorder[:ind]
         root.left = self.buildTree(left_pre, left_in)
         

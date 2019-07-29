@@ -22,8 +22,8 @@ class Solution(object):
         :rtype: Tree
         """
         if len(inorder) == 0 or len(postorder) == 0: return None
-        root_node = TreeNode(postorder.pop())
+        root_node = TreeNode(postorder.pop()) # Root is always last in postorder
         inorderIndex = inorder.index(root_node.val)
-        root_node.right = self.buildTree(inorder[inorderIndex+1:], postorder)
-        root_node.left = self.buildTree(inorder[0:inorderIndex], postorder)
+        root_node.right = self.buildTree(inorder[inorderIndex + 1:], postorder)
+        root_node.left = self.buildTree(inorder[:inorderIndex], postorder)
         return root_node
