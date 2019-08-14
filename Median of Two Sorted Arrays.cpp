@@ -1,5 +1,7 @@
 class Solution {
 public:
+
+    // TODO: Solve this problem for real --> should be O(log(M + N)) time complexity
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         vector<int> nums;
         for (auto i : nums1) nums.push_back(i);
