@@ -23,4 +23,13 @@ public:
         }
         return ans;
     }
+
+    string reverseWords1 (string &s) {
+        istringstream in(s);
+        string word;
+        s = "";
+        while (in >> word) s = word + " " + s;
+        if (s[0] == ' ') return "";
+        return s.substr(0, s.size() - 1);
+    }
 };
