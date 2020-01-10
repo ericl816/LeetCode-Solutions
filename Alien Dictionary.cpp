@@ -38,7 +38,7 @@ public:
                 if (!(--indeg[i - 'a'])) q.push(i);
             }
         }
-        // We have a cycle only if result's string length is less than number of nodes
+        // We have a cycle only if result's string length is not equal to number of nodes
         return ans.size() != adj.size() ? "" : ans;
     }
 

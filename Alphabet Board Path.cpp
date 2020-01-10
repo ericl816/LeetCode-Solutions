@@ -21,7 +21,7 @@ public:
         }
         return -1;
     }
-        
+    
     string alphabetBoardPath(string target) {
         string ans = "";
         int currx = 0, curry = 0;
