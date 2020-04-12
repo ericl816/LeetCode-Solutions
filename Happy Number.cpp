@@ -1,6 +1,5 @@
 class Solution {
 public:
-    
     int sum (int n) {
         int res = 0;
         while (n) {
