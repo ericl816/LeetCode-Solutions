@@ -1,6 +1,5 @@
 class Solution {
 public:
-
     // TODO: Optimization of removing string since string building is costly (strings are immutable in Java)
 
     int indeg[26];

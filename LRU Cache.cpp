@@ -1,8 +1,7 @@
-map<int, int> mp;
-list<int> lst;
-
 class LRUCache {
 public:
+    map<int, int> mp;
+    list<int> lst;
     int size;
     LRUCache (int capacity) {
         mp.clear();
