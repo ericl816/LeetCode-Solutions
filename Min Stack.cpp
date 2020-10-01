@@ -2,8 +2,7 @@ class MinStack {
 public:
     /** initialize your data structure here. */
     stack<pair<int, int> > s;
-    MinStack() {
-    }
+    MinStack() {}
     
     void push(int x) {
         if (s.empty()) {

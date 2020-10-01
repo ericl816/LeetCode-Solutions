@@ -1,40 +1,35 @@
 class LRUCache {
 public:
-    map<int, int> mp;
-    list<int> lst;
+    unordered_map<int, list<pair<int, int> >::iterator> ump;
+    list<pair<int, int> > lru;
     int size;
+
     LRUCache (int capacity) {
-        mp.clear();
-        lst.clear();
+        ump.clear();
+        lru.clear();
         size = capacity;
     }
     
     int get (int key) {
-        if (mp.find(key) == mp.end()) return -1;
-        else {
-            lst.remove(key);
-            lst.push_back(key);
-            return mp[key];
-        }
+        // Best case time complexity for unordered map::find is O(1) and O(n) worst case
+        auto it = ump.find(key);
+        int val = -1;
+        if (it == ump.end()) return val;
+        val = it->second->second;
+        lru.erase(it->second);
+        ump[key] = lru.insert(lru.begin(), make_pair(key, val));
+        return val;
     }
     
     void put (int key, int value) {
-        if (lst.size() >= size) {
-            if (mp.find(key) != mp.end()) {
-                lst.remove(key);
-            }
-            else {
-                mp.erase(lst.front());
-                lst.pop_front();
-            }
+        auto it = ump.find(key);
+        if (it != ump.end()) {
+            lru.erase(it->second);
+        } else if (lru.size() == size) {
+            ump.erase(lru.back().first);
+            lru.pop_back();
         }
-        else {
-            if (mp.find(key) != mp.end()) {
-                lst.remove(key);
-            }
-        }
-        mp[key] = value;
-        lst.push_back(key);
+        ump[key] = lru.insert(lru.begin(), make_pair(key, value));
     }
 };
 
