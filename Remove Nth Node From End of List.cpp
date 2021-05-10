@@ -3,25 +3,26 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode *node = head;
-        ListNode *resnode = head;
-        while (n--) node = node->next;
-
-        // n is equal to length of linked list --> remove head
-        if (node == NULL) return head->next;
-
-        while (node->next != NULL) {
-        	node = node->next;
-        	resnode = resnode->next;
+        ListNode *temp = new ListNode();
+        temp->next = head;
+        ListNode *first = temp;
+        ListNode *second = temp;
+        for (int i=1; i<=n + 1; i++) {
+            first = first->next;
         }
-        // Skip (remove) nth node from end of list
-        resnode->next = resnode->next->next;
-        return head;
+        while (first) {
+            first = first->next;
+            second = second->next;
+        }
+        second->next = second->next->next;
+        return temp->next;
     }
 };

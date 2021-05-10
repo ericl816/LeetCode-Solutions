@@ -2,7 +2,9 @@ class Solution {
 public:
     vector<vector<int>> generate(int numRows) {
         vector<vector<int> > ans(0, vector<int>(0, numRows));
-        if (!numRows) return ans;
+        if (!numRows) {
+            return ans;
+        }
         ans.push_back(vector<int>{1});
         numRows--;
         while (numRows--) {

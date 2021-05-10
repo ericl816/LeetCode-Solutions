@@ -10,7 +10,7 @@ public:
                 vec.push_back(i);
                 goto outer;
             }
-            else umii[target - nums[i]] = i;
+            else umii[target - next] = i;
         }
         outer:
         return vec;
