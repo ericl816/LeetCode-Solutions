@@ -17,7 +17,7 @@ public:
             return ans->next;
         }
         priority_queue<pair<int, ListNode*>, vector<pair<int, ListNode*> >, greater<pair<int, ListNode*> > > pq;
-        // Order by val in descending order
+        // Order by val in ascending order
         for (int i=0; i<lists.size(); i++) {
             if (lists[i]) {
                 pq.push(make_pair(lists[i]->val, lists[i]));
